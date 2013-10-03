@@ -86,6 +86,9 @@ module RailsAdmin
       # @see RailsAdmin::Config.model
       attr_reader :registry
 
+      # Boolean setting to ignore history
+      attr_accessor :ignore_history
+
       # Setup authentication to be run as a before filter
       # This is run inside the controller instance so you can setup any authentication you need to
       #
@@ -276,6 +279,7 @@ module RailsAdmin
         @label_methods = [:name, :title]
         @main_app_name = Proc.new { [Rails.application.engine_name.titleize.chomp(' Application'), 'Admin'] }
         @registry = {}
+        @ignore_history = true
       end
 
       # Reset a provided model's configuration.
