@@ -36,8 +36,9 @@
                   - if authorized? :new, abstract_model
                     - new_path = new_path(:model_name => abstract_model.to_param)
                     = action_icon(new_path, :add, t("admin.dashboard.add_new"))
-                  - history_path = history_model_path(:model_name => abstract_model.to_param)
-                  = action_icon(history_path, :calendar, t("admin.history.name"))
+                  - if RailsAdmin.config.ignore_history == false
+                    - history_path = history_model_path(:model_name => abstract_model.to_param)
+                    = action_icon(history_path, :calendar, t("admin.history.name"))
 - if authorized? :see_history
   #block-tables.block
     .content
