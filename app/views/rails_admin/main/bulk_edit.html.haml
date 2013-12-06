@@ -1,5 +1,5 @@
 #block-tables.block
-  /= breadcrumbs_for :bulk_edit, @abstract_model
+  = breadcrumbs_for :bulk_edit, @abstract_model
 
   .content
     .control
@@ -12,4 +12,11 @@
       = send(@model_config.edit.form_builder, @object, :url => bulk_update_path(:model_name => @abstract_model.to_param, :bulk_ids => @bulk_objects.map(&:id)), :html => { :multipart => true, :class => "form" }) do |form|
         - @model_config.bulkedit.with(:form => form, :object => @object, :view => self).visible_groups.each do |fieldset|
           = render :partial => 'form_fieldset', :locals => { :fieldset => fieldset, :form => form, :object => @object }
-        = render :partial => 'submit_buttons'
+        .group.navform.wat-cf
+          %button.button{:type => "submit", :name => "_save"}
+            = image_tag("rails_admin/theme/activo/images/icons/tick.png", :alt => t("admin.new.save"))
+            = t("admin.new.save")
+          %span.extra_buttons
+            %button.button{:type => "submit", :name => "_continue"}
+              = image_tag("rails_admin/theme/activo/images/icons/delete.png", :alt => t("admin.new.cancel"))
+              = t("admin.new.cancel")

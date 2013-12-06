@@ -52,7 +52,8 @@
 - can_export      = authorized? :export,      @abstract_model
 - can_delete      = authorized? :delete,      @abstract_model
 - can_see_history = authorized? :see_history, @abstract_model
-- can_bulk_action = can_export || can_delete
+- can_bulk_edit   = authorized? :bulk_edit,   @abstract_model
+- can_bulk_action = can_export || can_delete || can_bulk_edit
 - show_label    = t("admin.list.show_action")
 - delete_label  = t("admin.list.delete_action")
 - edit_label    = t("admin.list.edit_action")

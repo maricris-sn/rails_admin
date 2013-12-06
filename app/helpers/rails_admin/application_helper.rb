@@ -214,6 +214,7 @@ module RailsAdmin
       :show          => ViewType.new(:list,      :object, nil),
       :export        => ViewType.new(:list,      :model,  :export),
       :bulk_destroy  => ViewType.new(:list,      :model,  :delete),
+      :bulk_edit     => ViewType.new(:list,      :model,  :bulk_edit),
       :new           => ViewType.new(:list,      :model,  :new),
       :model_history => ViewType.new(:list,      :model,  nil,            :history_model),
       :list          => ViewType.new(:dashboard, :model,  :list),

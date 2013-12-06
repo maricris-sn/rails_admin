@@ -84,6 +84,8 @@ en:
       error: "%{name} failed to be %{action}"
       noaction: "No actions were taken"
     actions:
+      bulk_edit: "bulk edit"
+      edit: "edit"    
       create: "create"
       created: "created"
       update: "update"
@@ -93,6 +95,7 @@ en:
       export: "export"
       exported: "exported"
     breadcrumbs:
+      bulk_edit: "bulk edit"
       delete: "delete"
       history: "history"
       show: "show"
