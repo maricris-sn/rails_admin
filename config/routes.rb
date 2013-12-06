@@ -28,6 +28,8 @@ RailsAdmin::Engine.routes.draw do
 
     post "/:model_name/bulk_action", :to => :bulk_action, :as => "bulk_action"
     post "/:model_name/bulk_destroy", :to => :bulk_destroy, :as => "bulk_destroy"
+    post "/:model_name/bulk_update", :to => :bulk_update, :as => "bulk_update"
+    get "/:model_name/bulk_edit", :to => :bulk_edit, :as => "bulk_edit"
   end
 end
 

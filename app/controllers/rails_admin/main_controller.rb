@@ -230,8 +230,38 @@ module RailsAdmin
       case params[:bulk_action]
       when "delete" then bulk_delete
       when "export" then export
+      when "bulk_edit" then bulk_edit
+      when "bulk_update" then bulk_update
       else redirect_to(list_path(:model_name => @abstract_model.to_param), :notice => t("admin.flash.noaction"))
       end
+    end
+
+    def bulk_edit
+      @authorization_adapter.authorize(:bulk_edit, @abstract_model) if @authorization_adapter
+      @page_name = t("admin.actions.edit").capitalize + " " + @model_config.label.downcase
+      @page_type = @abstract_model.pretty_name.downcase
+
+      @bulk_objects, @current_page, @page_count, @record_count = list_entries
+
+      render :action => 'bulk_edit'
+    end
+
+    def bulk_update
+      @authorization_adapter.authorize(:bulk_update, @abstract_model) if @authorization_adapter
+
+      @modified_assoc = []
+
+      @page_name = t("admin.actions.update").capitalize + " " + @model_config.label.downcase
+      @page_type = @abstract_model.pretty_name.downcase
+
+      params['bulk_ids'].each do |object|
+        @abstract_model.get(object).update_attributes(params[@abstract_model.model.name.downcase])
+
+        # if !@abstract_model.get(object).save
+        #   handle_save_error :edit
+        # end
+      end
+      redirect_to list_path
     end
 
     def bulk_delete
