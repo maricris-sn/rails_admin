@@ -36,7 +36,7 @@ en:
       delete_selected: "Delete selected"
       add_new: "Add new"
       search: "Search"
-      select: "Select %{name}(s) to edit"
+      select: "Select %{name} to edit"
       show_all: "Show all"
       add_filter: "Add filter"
     new:

@@ -39,7 +39,7 @@ module RailsAdmin
       @authorization_adapter.authorize(:list, @abstract_model) if @authorization_adapter
 
       @page_type = @abstract_model.pretty_name.downcase
-      @page_name = t("admin.list.select", :name => @model_config.label.downcase)
+      @page_name = t("admin.list.select", :name => "#{@model_config.label.downcase}(s)")
 
       @objects, @current_page, @page_count, @record_count = list_entries
       @schema ||= { :only => @model_config.list.visible_fields.map {|f| f.name } }
