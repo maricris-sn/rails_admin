@@ -81,7 +81,7 @@
         - if can_delete
           = action_button '#', t("admin.list.delete_selected"), :cross, :onclick => "$j('#bulk_action').val('delete'); $j('#bulk_form').submit(); return false;"
 
-        = action_button '#', 'Multiple Edit', :edit, :onclick => "$j('#bulk_action').val('bulk_edit'); $j('#bulk_form').submit(); return false;"
+        = action_button '#', 'Edit Multiple', :edit, :onclick => "$j('#bulk_action').val('bulk_edit'); $j('#bulk_form').submit(); return false;"
 
         = form_tag(list_post_path(params.except(*%w[page filters query])), :method => :post, :remote => true, :class => "form", :style => "display:inline") do
           %span.search
