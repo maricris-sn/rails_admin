@@ -65,7 +65,7 @@ module RailsAdmin
 
     # Used for the icons in the admins very top right.
     def header_icon(image_name, title)
-      image_tag image_path("rails_admin/theme/activo/images/session/#{image_name}.png"), :alt => title, :title => title
+      image_tag image_path("rails_admin/theme/activo/images/session/#{image_name}.png"), :alt => title, :title => title, :width => '22'
     end
 
     # Used for the history entries in the sidebar
