@@ -4,6 +4,7 @@
 en:
   home:
     name: "home"
+    help: "Help"
   admin:
     dashboard:
       pagename: "Site administration"

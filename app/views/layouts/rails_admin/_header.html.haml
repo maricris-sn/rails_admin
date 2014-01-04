@@ -11,3 +11,4 @@
           %li= link_to header_icon(:account, _current_user.respond_to?(:email) && _current_user.email), edit_path(_current_user.class.name.underscore.pluralize, _current_user.id)
         - if defined?(Devise)
           %li= link_to header_icon(:logout, t('admin.credentials.log_out')), main_app.url_for(:action => 'destroy', :controller => 'devise/sessions'), :method => Devise.sign_out_via
+      %li= link_to header_icon(:help, t('home.help').capitalize), "mailto:support@admin.bbapp.com.au"
