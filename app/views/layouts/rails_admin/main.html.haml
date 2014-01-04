@@ -16,7 +16,7 @@
         #main
           #content= yield
           #footer
-            %p Rails Admin | 2011
+            %p{:style => 'display: none;'} Rails Admin | 2011
         = render :partial => "layouts/rails_admin/sidebar"
     = javascript_include_tag "rails_admin/rails_admin.js"
     = head_javascript
