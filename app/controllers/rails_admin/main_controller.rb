@@ -255,7 +255,13 @@ module RailsAdmin
       @page_type = @abstract_model.pretty_name.downcase
 
       params['bulk_ids'].each do |object|
-        @abstract_model.get(object).update_attributes(params[@abstract_model.model.name.downcase])
+        item = @abstract_model.get(object)
+        attributes = params[@abstract_model.model.name.downcase].delete_if { |k, v| v.empty? }
+        item.attributes = attributes
+        item.save(:validate => false)
+
+        # this goes through model save validations
+        # @abstract_model.get(object).update_attributes(params[@abstract_model.model.name.downcase])
 
         # if !@abstract_model.get(object).save
         #   handle_save_error :edit
