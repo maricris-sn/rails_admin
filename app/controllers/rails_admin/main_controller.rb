@@ -217,7 +217,7 @@ module RailsAdmin
         @schema = params[:schema].symbolize if params[:schema] # to_json and to_xml expect symbols for keys AND values.
         list
       else
-        @page_name = t("admin.actions.export").capitalize + " " + @model_config.label.downcase
+        @page_name = t("admin.actions.export.page").capitalize + " " + @model_config.label.downcase
         @page_type = @abstract_model.pretty_name.downcase
 
         render :action => 'export'
