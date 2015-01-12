@@ -256,7 +256,8 @@ module RailsAdmin
 
       params['bulk_ids'].each do |object|
         item = @abstract_model.get(object)
-        attributes = params[@abstract_model.model.name.underscore.downcase].delete_if { |k, v| (v.is_a?(Array) ? v.delete_if{|x| x.empty?} : v.blank?) }
+        params_hash = params[@abstract_model.model.name.underscore.downcase].each{|k,v| (v.is_a?(Array) ? v.delete_if{|x| x.empty?} : v) }
+        attributes = params_hash.delete_if { |k, v| v.blank? }
         item.attributes = attributes
         item.save(:validate => false)
 
